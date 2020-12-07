@@ -23,11 +23,15 @@ corrects = 0
 
 for i in val: 
     y = np.dot(w, np.array([i[0], 1]))
-    plt.scatter(i[0], i[1])
+    if (3*i[0]+20) > 0:
+        plt.scatter(i[0], i[1], color='b')
+    else:
+        plt.scatter(i[0], i[1], color='r')
+
     if(np.sign(y) == np.sign(i[1])):
         corrects += 1
 # plot a function you got
-space = np.linspace(-25, 25, 10)
+space = np.linspace(-5, 5, 10)
 result_y = w[0]*space + w[1]
 plt.plot(space, result_y, 'r')
 plt.show()

@@ -8,11 +8,12 @@ def logfcn(s):
 
 
 # assume that those are hours of studying and scores on the test
-dataset = np.array([(0, 0), (1, 0), (2, 0), (5, 1), (7, 1), (9, 1),
-                   (12, 1),  (15, 0), (20, 1), (32, 0), (43, 1),
+dataset = np.array([(0, 0), (1, 0), (2, 0), (5, 0), (7, 0), (9, 0),
+                   (12, 0),  (15, 0), (20, 1), (32, 0), (43, 0),
                    (56, 0), (76, 1), (89, 1), (92, 1),
-                   (100, 1), (120, 1),  (150, 0), (156, 0), (158, 1),
-                   (160, 1), (170, 1), (200, 1), (300, 0), (400, 0)])
+                   (100, 1), (120, 1),  (150, 0), (156, 1), (158, 1),
+                   (160, 1), (170, 1), (200, 1), (300, 1), (400, 1)])
+
 
 random.shuffle(dataset)
 train = dataset[:20]
@@ -36,6 +37,9 @@ for sample in val:
     print(f"REAL Y IS {sample[1]}")
 
 space = np.linspace(-150, 150, 1000)
-result_y = w[0]*space+w[1]
+s = w[0]*space+w[1]
+# result_y = s
+result_y = np.exp(s)/(1+np.exp(s))
+
 plt.plot(space, result_y, 'r')
 plt.show()

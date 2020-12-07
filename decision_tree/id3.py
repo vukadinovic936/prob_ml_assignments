@@ -33,11 +33,11 @@ print(DecisionTreeClassifier(class_weight=None,
 # Predicting labels on the test set.
 y_pred = clf.predict(X_test)
 
-print('Accuracy Score on train data: ',
-      accuracy_score(y_true=y_train, y_pred=clf.predict(X_train)))
+#print('Accuracy Score on train data: ',
+#      accuracy_score(y_true=y_train, y_pred=clf.predict(X_train)))
 
-print('Accuracy Score on test data: ',
-      accuracy_score(y_true=y_test, y_pred=y_pred))
+#print('Accuracy Score on test data: ',
+#      accuracy_score(y_true=y_test, y_pred=y_pred))
 
 clf = DecisionTreeClassifier(criterion='entropy', min_samples_split=50)
 clf.fit(X_train, y_train)
